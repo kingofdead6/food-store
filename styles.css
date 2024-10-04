@@ -1,0 +1,332 @@
+/* General Body Styling for Context */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    padding: 20px; /* Reduced padding for smaller screens */
+    background-color: #f4f4f9;
+    margin: 0;
+    text-align: center;
+}
+
+.up {
+    display: flex;
+    flex-direction: column; /* Stack items vertically on mobile */
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Full width on mobile */
+    margin: 0 auto 15px; /* Reduced margin */
+}
+
+#searchBox {
+    width: 100%;
+    padding: 10px 40px; /* Reduced padding */
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+    font-size: 16px; /* Smaller font size */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+#searchBox:focus {
+    border-color: #007bff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+.clear-button {
+    position: absolute;
+    top: 50%;
+    right: -30px; /* Adjusted position */
+    transform: translateY(-50%);
+    font-size: 16px; /* Smaller button size */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    display: none; /* Initially hidden */
+}
+
+.clear-button:hover {
+    color: #ff4d4d;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Reduced gap for smaller screens */
+    justify-content: center;
+}
+
+.item {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%; /* Full width on mobile */
+    max-width: 250px; /* Limit maximum width */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: none; /* Hidden by default */
+}
+
+.item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.item img {
+    width: 100%;
+    height: 150px; /* Adjusted height */
+    object-fit: cover;
+}
+
+.item h3 {
+    font-size: 18px; /* Smaller font size */
+    margin: 10px 0; /* Reduced margin */
+    color: #333;
+}
+
+.item p {
+    font-size: 12px; /* Smaller font size */
+    color: #777;
+    margin: 0 10px 10px; /* Adjusted margins */
+}
+
+.button {
+    margin-top: 10px; /* Reduced margin */
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px; /* Reduced padding */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Show filtered items */
+.item.show {
+    display: block;
+}
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto; /* Reduced margin */
+    padding: 0; /* No padding to ensure flex items fill the modal */
+    border: 1px solid #888;
+    width: 90%; /* Increased for smaller screens */
+    max-width: 600px; /* Max width for larger screens */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    position: relative; /* Position for close button */
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 10px; /* Adjusted position */
+    right: 15px; /* Adjusted position */
+    font-size: 20px; /* Smaller font size */
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+}
+.close:hover {
+    color: red; /* Change color on hover */
+}
+
+/* Modal Body */
+.modal-body {
+    display: flex; /* Flexbox for side-by-side layout */
+    flex-direction: column; /* Stack items vertically */
+}
+
+/* Modal Image */
+.modal-image {
+    flex: 1; /* Take up 50% of the width */
+}
+.modal-image img {
+    height: auto; /* Maintain aspect ratio */
+    width: 100%; /* Responsive image */
+    border-radius: 8px 0 0 8px; /* Rounded corners on the left */
+}
+
+/* Modal Details */
+.modal-details {
+    flex: 1; /* Take up 50% of the width */
+    padding: 15px; /* Adjusted padding */
+    display: flex;
+    flex-direction: column; /* Vertical layout for text */
+    justify-content: center; /* Center text vertically */
+}
+
+/* Title */
+.modal-details h2 {
+    margin: 0 0 10px; /* Space below the title */
+    font-size: 30px; /* Smaller font size */
+}
+
+/* Description */
+.modal-details p {
+    font-size: 14px; /* Smaller font size */
+    margin-bottom: 15px; /* Space below the description */
+    line-height: 1.5; /* Better readability */
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background-color: #28a745; /* Bootstrap's success color */
+    color: white; /* Text color */
+    border: none;
+    padding: 8px 12px; /* Adjusted padding */
+    font-size: 14px; /* Smaller font size */
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+.add-to-cart:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Cart Styling */
+.cart {
+    position: fixed; /* Fixed position */
+    right: 0; /* Align to the right */
+    top: 70px; /* Adjust as needed */
+    width: 90%; /* Set a percentage width for responsiveness */
+    max-width: 300px; /* Limit maximum width */
+    background-color: #fff; /* White background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Adjusted padding */
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Sit on top */
+}
+
+/* Cart Items */
+.cart-items {
+    background-color: #e5e5e5;
+    border-radius: 20px;
+    padding: 5px; /* Reduced padding */
+    max-height: 300px; /* Limit height */
+    overflow-y: auto; /* Scroll if needed */
+    margin-bottom: 15px; /* Space below items */
+}
+
+/* Individual Cart Item */
+.cart-item {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between name and remove button */
+    margin-bottom: 5px; /* Reduced space between items */
+}
+
+.cart-item img {
+    width: 40px; /* Smaller thumbnail */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.cart-item-name {
+    flex: 1; /* Take up available space */
+    margin-left: 10px; /* Space from image */
+}
+
+/* Remove Button */
+.remove-button {
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    color: red; /* Red text */
+    cursor: pointer; /* Pointer cursor */
+}
+
+/* Toggle Cart Button */
+.toggle-cart-button {
+    padding: 8px 12px; /* Adjusted padding */
+    background-color: #4c9aee; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px 0; /* Margin around the button */
+}
+
+.toggle-cart-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.checkout-button {
+    padding: 8px 12px; /* Adjusted padding */
+    background-color: #52ff52; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px 0; /* Margin around the button */
+}
+.checkout-button:hover {
+    background-color: #04c104; 
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    
+
+
+
+#searchBox {
+    width: 80%;
+}
+
+
+.clear-button {
+    right: 10px; /* Adjusted position */
+}
+
+/* Modal Background */
+.modal {
+    top: 80px;
+    height: 70%; /* Full height */
+}
+
+
+/* Close Button */
+.close {
+    font-size: 40px; /* Smaller font size */
+    color: #ff0000;
+    transition: color 0.3s;
+}
+.close:hover {
+    color: rgb(153, 0, 0); /* Change color on hover */
+}
+.modal-image img {
+   margin-bottom: 50px;
+}
+
+.cart {
+    right: 30px; /* Align to the right */
+    top: 100px; /* Adjust as needed */
+}
+
+}

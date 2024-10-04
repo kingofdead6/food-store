@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-Based Filter with Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="up">
+    <div class="search-container">
+        <input type="text" id="searchBox" placeholder="Type to search..." onkeyup="filterByText()">
+        <button class="clear-button" onclick="clearSearch()">✖</button>
+    </div>
+    <button id="toggleCartButton" class="toggle-cart-button" onclick="toggleCart()">Cart</button>
+    </div>
+    <div id="cart" class="cart">
+        <h2>Your Cart</h2>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-summary">
+            <p id="totalPrice">Total: $0.00</p>
+            <button id="checkoutButton" class="checkout-button" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+    
+    
+    <div class="product-grid">
+        <div class="item" onclick="openModal('apple.jpeg', 'Apple', 'A fresh apple with a juicy taste.')">
+            <img src="apple.jpeg" alt="Apple">
+            <h3 class="name">Apple</h3>
+            <p class="description">A fresh apple with a juicy taste.</p>
+        </div>
+        <div class="item" onclick="openModal('banana.jpeg', 'Banana', 'A ripe banana full of nutrients.')">
+            <img src="banana.jpeg" alt="Banana">
+            <h3 class="name">Banana</h3>
+            <p class="description">A ripe banana full of nutrients.</p>
+        </div>
+        <div class="item" onclick="openModal('orange.jpeg', 'Orange', 'A sweet orange packed with Vitamin C.')">
+            <img src="orange.jpeg" alt="Orange">
+            <h3 class="name">Orange</h3>
+            <p class="description">A sweet orange packed with Vitamin C.</p>
+        </div>
+        <div class="item" onclick="openModal('pineapple.jpeg', 'Pineapple', 'A tropical pineapple with a tangy flavor.')">
+            <img src="pineapple.jpeg" alt="Pineapple">
+            <h3 class="name">Pineapple</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('blueberry.jpeg', 'blueberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="blueberry.jpeg" alt="Pineapple">
+            <h3 class="name">blueberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('grape.jpeg', 'grape', 'A tropical pineapple with a tangy flavor.')">
+            <img src="grape.jpeg" alt="Pineapple">
+            <h3 class="name">grape</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('mango.jpeg', 'mango', 'A tropical pineapple with a tangy flavor.')">
+            <img src="mango.jpeg" alt="Pineapple">
+            <h3 class="name">Mango</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('strawberry.jpeg', 'strawberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="strawberry.jpeg" alt="Pineapple">
+            <h3 class="name">strawberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('apple.jpeg', 'Apple', 'A fresh apple with a juicy taste.')">
+            <img src="apple.jpeg" alt="Apple">
+            <h3 class="name">Apple</h3>
+            <p class="description">A fresh apple with a juicy taste.</p>
+        </div>
+        <div class="item" onclick="openModal('banana.jpeg', 'Banana', 'A ripe banana full of nutrients.')">
+            <img src="banana.jpeg" alt="Banana">
+            <h3 class="name">Banana</h3>
+            <p class="description">A ripe banana full of nutrients.</p>
+        </div>
+        <div class="item" onclick="openModal('orange.jpeg', 'Orange', 'A sweet orange packed with Vitamin C.')">
+            <img src="orange.jpeg" alt="Orange">
+            <h3 class="name">Orange</h3>
+            <p class="description">A sweet orange packed with Vitamin C.</p>
+        </div>
+        <div class="item" onclick="openModal('pineapple.jpeg', 'Pineapple', 'A tropical pineapple with a tangy flavor.')">
+            <img src="pineapple.jpeg" alt="Pineapple">
+            <h3 class="name">Pineapple</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('blueberry.jpeg', 'blueberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="blueberry.jpeg" alt="Pineapple">
+            <h3 class="name">blueberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('grape.jpeg', 'grape', 'A tropical pineapple with a tangy flavor.')">
+            <img src="grape.jpeg" alt="Pineapple">
+            <h3 class="name">grape</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('mango.jpeg', 'mango', 'A tropical pineapple with a tangy flavor.')">
+            <img src="mango.jpeg" alt="Pineapple">
+            <h3 class="name">Mango</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('strawberry.jpeg', 'strawberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="strawberry.jpeg" alt="Pineapple">
+            <h3 class="name">strawberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('apple.jpeg', 'Apple', 'A fresh apple with a juicy taste.')">
+            <img src="apple.jpeg" alt="Apple">
+            <h3 class="name">Apple</h3>
+            <p class="description">A fresh apple with a juicy taste.</p>
+        </div>
+        <div class="item" onclick="openModal('banana.jpeg', 'Banana', 'A ripe banana full of nutrients.')">
+            <img src="banana.jpeg" alt="Banana">
+            <h3 class="name">Banana</h3>
+            <p class="description">A ripe banana full of nutrients.</p>
+        </div>
+        <div class="item" onclick="openModal('orange.jpeg', 'Orange', 'A sweet orange packed with Vitamin C.')">
+            <img src="orange.jpeg" alt="Orange">
+            <h3 class="name">Orange</h3>
+            <p class="description">A sweet orange packed with Vitamin C.</p>
+        </div>
+        <div class="item" onclick="openModal('pineapple.jpeg', 'Pineapple', 'A tropical pineapple with a tangy flavor.')">
+            <img src="pineapple.jpeg" alt="Pineapple">
+            <h3 class="name">Pineapple</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('blueberry.jpeg', 'blueberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="blueberry.jpeg" alt="Pineapple">
+            <h3 class="name">blueberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('grape.jpeg', 'grape', 'A tropical pineapple with a tangy flavor.')">
+            <img src="grape.jpeg" alt="Pineapple">
+            <h3 class="name">grape</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('mango.jpeg', 'mango', 'A tropical pineapple with a tangy flavor.')">
+            <img src="mango.jpeg" alt="Pineapple">
+            <h3 class="name">Mango</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('strawberry.jpeg', 'strawberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="strawberry.jpeg" alt="Pineapple">
+            <h3 class="name">strawberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('apple.jpeg', 'Apple', 'A fresh apple with a juicy taste.')">
+            <img src="apple.jpeg" alt="Apple">
+            <h3 class="name">Apple</h3>
+            <p class="description">A fresh apple with a juicy taste.</p>
+        </div>
+        <div class="item" onclick="openModal('banana.jpeg', 'Banana', 'A ripe banana full of nutrients.')">
+            <img src="banana.jpeg" alt="Banana">
+            <h3 class="name">Banana</h3>
+            <p class="description">A ripe banana full of nutrients.</p>
+        </div>
+        <div class="item" onclick="openModal('orange.jpeg', 'Orange', 'A sweet orange packed with Vitamin C.')">
+            <img src="orange.jpeg" alt="Orange">
+            <h3 class="name">Orange</h3>
+            <p class="description">A sweet orange packed with Vitamin C.</p>
+        </div>
+        <div class="item" onclick="openModal('pineapple.jpeg', 'Pineapple', 'A tropical pineapple with a tangy flavor.')">
+            <img src="pineapple.jpeg" alt="Pineapple">
+            <h3 class="name">Pineapple</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('blueberry.jpeg', 'blueberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="blueberry.jpeg" alt="Pineapple">
+            <h3 class="name">blueberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('grape.jpeg', 'grape', 'A tropical pineapple with a tangy flavor.')">
+            <img src="grape.jpeg" alt="Pineapple">
+            <h3 class="name">grape</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('mango.jpeg', 'mango', 'A tropical pineapple with a tangy flavor.')">
+            <img src="mango.jpeg" alt="Pineapple">
+            <h3 class="name">Mango</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('strawberry.jpeg', 'strawberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="strawberry.jpeg" alt="Pineapple">
+            <h3 class="name">strawberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('apple.jpeg', 'Apple', 'A fresh apple with a juicy taste.')">
+            <img src="apple.jpeg" alt="Apple">
+            <h3 class="name">Apple</h3>
+            <p class="description">A fresh apple with a juicy taste.</p>
+        </div>
+        <div class="item" onclick="openModal('banana.jpeg', 'Banana', 'A ripe banana full of nutrients.')">
+            <img src="banana.jpeg" alt="Banana">
+            <h3 class="name">Banana</h3>
+            <p class="description">A ripe banana full of nutrients.</p>
+        </div>
+        <div class="item" onclick="openModal('orange.jpeg', 'Orange', 'A sweet orange packed with Vitamin C.')">
+            <img src="orange.jpeg" alt="Orange">
+            <h3 class="name">Orange</h3>
+            <p class="description">A sweet orange packed with Vitamin C.</p>
+        </div>
+        <div class="item" onclick="openModal('pineapple.jpeg', 'Pineapple', 'A tropical pineapple with a tangy flavor.')">
+            <img src="pineapple.jpeg" alt="Pineapple">
+            <h3 class="name">Pineapple</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('blueberry.jpeg', 'blueberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="blueberry.jpeg" alt="Pineapple">
+            <h3 class="name">blueberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('grape.jpeg', 'grape', 'A tropical pineapple with a tangy flavor.')">
+            <img src="grape.jpeg" alt="Pineapple">
+            <h3 class="name">grape</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('mango.jpeg', 'mango', 'A tropical pineapple with a tangy flavor.')">
+            <img src="mango.jpeg" alt="Pineapple">
+            <h3 class="name">Mango</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('strawberry.jpeg', 'strawberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="strawberry.jpeg" alt="Pineapple">
+            <h3 class="name">strawberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('apple.jpeg', 'Apple', 'A fresh apple with a juicy taste.')">
+            <img src="apple.jpeg" alt="Apple">
+            <h3 class="name">Apple</h3>
+            <p class="description">A fresh apple with a juicy taste.</p>
+        </div>
+        <div class="item" onclick="openModal('banana.jpeg', 'Banana', 'A ripe banana full of nutrients.')">
+            <img src="banana.jpeg" alt="Banana">
+            <h3 class="name">Banana</h3>
+            <p class="description">A ripe banana full of nutrients.</p>
+        </div>
+        <div class="item" onclick="openModal('orange.jpeg', 'Orange', 'A sweet orange packed with Vitamin C.')">
+            <img src="orange.jpeg" alt="Orange">
+            <h3 class="name">Orange</h3>
+            <p class="description">A sweet orange packed with Vitamin C.</p>
+        </div>
+        <div class="item" onclick="openModal('pineapple.jpeg', 'Pineapple', 'A tropical pineapple with a tangy flavor.')">
+            <img src="pineapple.jpeg" alt="Pineapple">
+            <h3 class="name">Pineapple</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('blueberry.jpeg', 'blueberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="blueberry.jpeg" alt="Pineapple">
+            <h3 class="name">blueberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('grape.jpeg', 'grape', 'A tropical pineapple with a tangy flavor.')">
+            <img src="grape.jpeg" alt="Pineapple">
+            <h3 class="name">grape</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('mango.jpeg', 'mango', 'A tropical pineapple with a tangy flavor.')">
+            <img src="mango.jpeg" alt="Pineapple">
+            <h3 class="name">Mango</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('strawberry.jpeg', 'strawberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="strawberry.jpeg" alt="Pineapple">
+            <h3 class="name">strawberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('apple.jpeg', 'Apple', 'A fresh apple with a juicy taste.')">
+            <img src="apple.jpeg" alt="Apple">
+            <h3 class="name">Apple</h3>
+            <p class="description">A fresh apple with a juicy taste.</p>
+        </div>
+        <div class="item" onclick="openModal('banana.jpeg', 'Banana', 'A ripe banana full of nutrients.')">
+            <img src="banana.jpeg" alt="Banana">
+            <h3 class="name">Banana</h3>
+            <p class="description">A ripe banana full of nutrients.</p>
+        </div>
+        <div class="item" onclick="openModal('orange.jpeg', 'Orange', 'A sweet orange packed with Vitamin C.')">
+            <img src="orange.jpeg" alt="Orange">
+            <h3 class="name">Orange</h3>
+            <p class="description">A sweet orange packed with Vitamin C.</p>
+        </div>
+        <div class="item" onclick="openModal('pineapple.jpeg', 'Pineapple', 'A tropical pineapple with a tangy flavor.')">
+            <img src="pineapple.jpeg" alt="Pineapple">
+            <h3 class="name">Pineapple</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('blueberry.jpeg', 'blueberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="blueberry.jpeg" alt="Pineapple">
+            <h3 class="name">blueberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('grape.jpeg', 'grape', 'A tropical pineapple with a tangy flavor.')">
+            <img src="grape.jpeg" alt="Pineapple">
+            <h3 class="name">grape</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('mango.jpeg', 'mango', 'A tropical pineapple with a tangy flavor.')">
+            <img src="mango.jpeg" alt="Pineapple">
+            <h3 class="name">Mango</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('strawberry.jpeg', 'strawberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="strawberry.jpeg" alt="Pineapple">
+            <h3 class="name">strawberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('apple.jpeg', 'Apple', 'A fresh apple with a juicy taste.')">
+            <img src="apple.jpeg" alt="Apple">
+            <h3 class="name">Apple</h3>
+            <p class="description">A fresh apple with a juicy taste.</p>
+        </div>
+        <div class="item" onclick="openModal('banana.jpeg', 'Banana', 'A ripe banana full of nutrients.')">
+            <img src="banana.jpeg" alt="Banana">
+            <h3 class="name">Banana</h3>
+            <p class="description">A ripe banana full of nutrients.</p>
+        </div>
+        <div class="item" onclick="openModal('orange.jpeg', 'Orange', 'A sweet orange packed with Vitamin C.')">
+            <img src="orange.jpeg" alt="Orange">
+            <h3 class="name">Orange</h3>
+            <p class="description">A sweet orange packed with Vitamin C.</p>
+        </div>
+        <div class="item" onclick="openModal('pineapple.jpeg', 'Pineapple', 'A tropical pineapple with a tangy flavor.')">
+            <img src="pineapple.jpeg" alt="Pineapple">
+            <h3 class="name">Pineapple</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('blueberry.jpeg', 'blueberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="blueberry.jpeg" alt="Pineapple">
+            <h3 class="name">blueberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('grape.jpeg', 'grape', 'A tropical pineapple with a tangy flavor.')">
+            <img src="grape.jpeg" alt="Pineapple">
+            <h3 class="name">grape</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('mango.jpeg', 'mango', 'A tropical pineapple with a tangy flavor.')">
+            <img src="mango.jpeg" alt="Pineapple">
+            <h3 class="name">Mango</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('strawberry.jpeg', 'strawberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="strawberry.jpeg" alt="Pineapple">
+            <h3 class="name">strawberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('apple.jpeg', 'Apple', 'A fresh apple with a juicy taste.')">
+            <img src="apple.jpeg" alt="Apple">
+            <h3 class="name">Apple</h3>
+            <p class="description">A fresh apple with a juicy taste.</p>
+        </div>
+        <div class="item" onclick="openModal('banana.jpeg', 'Banana', 'A ripe banana full of nutrients.')">
+            <img src="banana.jpeg" alt="Banana">
+            <h3 class="name">Banana</h3>
+            <p class="description">A ripe banana full of nutrients.</p>
+        </div>
+        <div class="item" onclick="openModal('orange.jpeg', 'Orange', 'A sweet orange packed with Vitamin C.')">
+            <img src="orange.jpeg" alt="Orange">
+            <h3 class="name">Orange</h3>
+            <p class="description">A sweet orange packed with Vitamin C.</p>
+        </div>
+        <div class="item" onclick="openModal('pineapple.jpeg', 'Pineapple', 'A tropical pineapple with a tangy flavor.')">
+            <img src="pineapple.jpeg" alt="Pineapple">
+            <h3 class="name">Pineapple</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('blueberry.jpeg', 'blueberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="blueberry.jpeg" alt="Pineapple">
+            <h3 class="name">blueberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('grape.jpeg', 'grape', 'A tropical pineapple with a tangy flavor.')">
+            <img src="grape.jpeg" alt="Pineapple">
+            <h3 class="name">grape</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('mango.jpeg', 'mango', 'A tropical pineapple with a tangy flavor.')">
+            <img src="mango.jpeg" alt="Pineapple">
+            <h3 class="name">Mango</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+        <div class="item" onclick="openModal('strawberry.jpeg', 'strawberry', 'A tropical pineapple with a tangy flavor.')">
+            <img src="strawberry.jpeg" alt="Pineapple">
+            <h3 class="name">strawberry</h3>
+            <p class="description">A tropical pineapple with a tangy flavor.</p>
+        </div>
+       
+    </div>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Product Image" />
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalTitle">Product Title</h2>
+                    <p id="modalText">Product description goes here.</p>
+                    <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="app.js"></script>
+</body>
+</html>
